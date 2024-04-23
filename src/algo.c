@@ -1,43 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 16:20:18 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/04/23 08:27:41 by tom              ###   ########.fr       */
+/*   Created: 2024/04/23 08:05:44 by tom               #+#    #+#             */
+/*   Updated: 2024/04/23 08:26:00 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_find_max(t_list **stack)
+void	ft_sort_three_node(t_list **head_a)
 {
-	t_list	*tmp;
 	int		max;
 
-	tmp = *stack;
-	max = tmp->content;
-	while (tmp->next)
+	max = ft_find_max(head_a);
+	if (ft_is_sort(head_a))
+		return ;
+	if (ft_lstlast(*head_a)->content != max)
 	{
-		if (tmp->content > max)
-			max = tmp->content;
-		tmp = tmp->next;
+		if ((*head_a)->content == max)
+			rotate("a", head_a, NULL);
+		else
+			reverse_rotate("a", head_a, NULL);
 	}
-	return (max);
-}
-
-bool ft_is_sort(t_list **stack)
-{
-	t_list *tmp;
-
-	tmp = *stack;
-	while (tmp->next)
-	{
-		if (tmp->content > tmp->next->content)
-			return (false);
-		tmp = tmp->next;
-	}
-	return (true);
+	if (!ft_is_sort(head_a))
+		swap("a", head_a, NULL);
 }

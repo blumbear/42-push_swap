@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:47:44 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/04/23 07:48:07 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/23 08:20:55 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@ typedef struct s_avlist
 	bool	splitted;
 }	t_avlist;
 
+/******************************************************************************/
+/*                                                                            */
+/* algo                                                                       */
+/*                                                                            */
+/******************************************************************************/
+
+void	ft_sort_three_node(t_list **head_a);
+
 
 /******************************************************************************/
 /*                                                                            */
@@ -32,7 +40,6 @@ void	reverse_rotate(char *stacks, t_list **a, t_list **b);
 void	rotate(char *stacks, t_list **a, t_list **b);
 void	push(char stacks, t_list **a, t_list **b);
 void	swap(char *stacks, t_list **a, t_list **b);
-
 
 /******************************************************************************/
 /*                                                                            */
@@ -54,5 +61,13 @@ void	ft_push_node(t_list **head_p, t_list **head_r);
 void	ft_rev_rotate_stack(t_list **stack);
 void	ft_rotate_stack(t_list **stack);
 
+/******************************************************************************/
+/*                                                                            */
+/* utils                                                                      */
+/*                                                                            */
+/******************************************************************************/
+
+int	ft_find_max(t_list **stack);
+bool ft_is_sort(t_list **stack);
 
 #endif
