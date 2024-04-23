@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 16:20:18 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/04/23 08:27:41 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/23 08:29:58 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_find_max(t_list **stack)
 	return (max);
 }
 
-bool ft_is_sort(t_list **stack)
+bool ft_is_sorted(t_list **stack)
 {
 	t_list *tmp;
 
