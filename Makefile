@@ -7,7 +7,7 @@ CFLAGS += -Wall -Wextra -Werror -g -Iinclude
 
 LFLAGS = -Llibamoa
 
-FILES = main utils print_and_error
+FILES = main utils print_and_error rules instruction
 
 OBJ_DIR = obj/
 SRC_DIR = src/

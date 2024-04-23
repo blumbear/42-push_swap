@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_and_error.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttaquet <ttaquet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 18:27:38 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/04/10 18:29:23 by ttaquet          ###   ########.fr       */
+/*   Updated: 2024/04/23 07:07:11 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	del_fun(int n)
 {
-	n = 0;
+	(void)n;
 }
 
 void	ft_print_stack(t_list **stack)
@@ -29,7 +29,7 @@ void	ft_print_stack(t_list **stack)
 	}
 }
 
-void	ft_error(t_list **a, t_list **b, char *error, bool splitted, char **list)
+void	ft_error(t_list **a, t_list **b, char *error)
 {
 	if (a)
 	{
@@ -45,7 +45,5 @@ void	ft_error(t_list **a, t_list **b, char *error, bool splitted, char **list)
 		ft_printf("%s\n", error);
 	else if (error)
 		ft_printf("Error : %s\n", error);
-	if (splitted)
-		ft_free_double_array(list);
 	exit(0);
 }

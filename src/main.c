@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttaquet <ttaquet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 16:18:58 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/04/10 18:46:40 by ttaquet          ###   ########.fr       */
+/*   Updated: 2024/04/23 07:54:32 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_fill_stack_a(char **list, t_list **a, bool splitted)
 {
-	int	tmp;
+	long int	tmp;
 	int	i;
 
 	i = 0;
@@ -22,10 +22,18 @@ void	ft_fill_stack_a(char **list, t_list **a, bool splitted)
 	{
 		tmp = ft_atoi(list[i]);
 		if (tmp > MAX_INT || tmp < MIN_INT)
-			ft_error(a, NULL, "The int must be between MIN_INT and MAX_INT", splitted, list);
+		{
+			if (splitted)
+				ft_free_double_array(list);
+			ft_error(a, NULL, "The int must be between MIN_INT and MAX_INT");
+		}
 		if (ft_intlen(tmp) != ft_strlen(list[i]) && tmp != 0)
-			ft_error(a, NULL, "An char is in the int list", splitted, list);
-		ft_lstadd_back(a, ft_lstnew(tmp));
+		{
+			if (splitted)
+				ft_free_double_array(list);
+			ft_error(a, NULL, "An char is in the int list");
+		}
+		ft_lstadd_back(a, ft_lstnew((int)tmp));
 		i++;
 	}
 }
@@ -53,20 +61,26 @@ int	ft_is_not_double(t_list **stack)
 int	main(int ac, char **av)
 {
 	t_list	**a;
-	// t_list *b;
+	t_list	**b;
 	bool	splitted;
 
 	splitted = (ac == 2);
 	if (ac < 2)
-		ft_error(NULL, NULL, "Usage : ./push_swap <int list>", splitted, av);
+		ft_error(NULL, NULL, "Usage : ./push_swap <int list>");
 	av++;
 	if (ac == 2)
 		av = ft_split(*av, ' ');
 	a = malloc(sizeof(t_list *));
 	*a = NULL;
 	ft_fill_stack_a(av, a, splitted);
+	if (splitted)
+		ft_free_double_array(av);
 	if (!ft_is_not_double(a))
-		ft_error(a, NULL, "The int list contains double", splitted, av);
+		ft_error(a, NULL, "The int list contains double");
+	b = malloc(sizeof(t_list *));
+	*b = NULL;
 	ft_print_stack(a);
-	ft_error(a, NULL, NULL, splitted, av);
+	ft_printf("--------\n");
+	ft_print_stack(b);
+	ft_error(a, b, NULL);
 }
