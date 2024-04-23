@@ -6,11 +6,20 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 08:05:44 by tom               #+#    #+#             */
-/*   Updated: 2024/04/23 08:29:58 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/23 08:44:15 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_turk_sort(t_list **a, t_list **b)
+{
+	(void)b;
+	if (ft_is_sorted(a))
+		return ;
+	else if (ft_stack_size(a) <= 3)
+		ft_sort_three_node(a);
+}
 
 void	ft_sort_three_node(t_list **head_a)
 {
