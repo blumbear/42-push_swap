@@ -6,38 +6,23 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 08:05:44 by tom               #+#    #+#             */
-/*   Updated: 2024/04/24 12:18:01 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/24 12:23:57 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void	ft_find_target(t_list **stack, t_list *node, char *direction)
+void	ft_turk_sort(t_list **a, t_list **b)
 {
-	t_list	*tmp;
-	int		n;
+	int a_size;
 
-	tmp = (*stack);
-	n = ft_find_max(stack)->content;
-	if (ft_strncmp(direction, "b to a", 6) == 0)
-	{
-		if (n > node->content)
-		{
-			while (tmp->next && tmp->content < node->content)
-				tmp = tmp->next;
-			node->target = tmp;
-		}
-		else if (n < node->content)
-		{
-			n = ft_find_min(stack)->content;
-			while (tmp->next && tmp->content != n)
-				tmp = tmp->next;
-			node->target = tmp;
-		}
-	}
-	else
+	a_size = ft_stack_size(a);
+	if (ft_is_sorted(a))
 		return ;
+	if (a_size <= 3)
+		ft_sort_three_node(a);
+	else if (a_size <= 5)
+		ft_sort_five_node(a, b, a_size);
 }
 
 void	ft_sort_five_node(t_list **a, t_list **b, int a_size)
@@ -54,7 +39,7 @@ void	ft_sort_five_node(t_list **a, t_list **b, int a_size)
 	{
 		ft_find_target(a, (*b), "b to a");
 		while ((*a) != (*b)->target)
-			{rotate("a", a, b);ft_printf("t");}
+			rotate("a", a, b);
 		push('a', a, b);
 		ft_set_index(a, b);
 		ft_set_mediane(a);
@@ -67,19 +52,6 @@ void	ft_sort_five_node(t_list **a, t_list **b, int a_size)
 		while (!ft_is_sorted(a))
 			reverse_rotate("a", a, b);
 	ft_print_stack(a, b);
-}
-
-void	ft_turk_sort(t_list **a, t_list **b)
-{
-	int a_size;
-
-	a_size = ft_stack_size(a);
-	if (ft_is_sorted(a))
-		return ;
-	if (a_size <= 3)
-		ft_sort_three_node(a);
-	else if (a_size <= 5)
-		ft_sort_five_node(a, b, a_size);
 }
 
 void	ft_sort_three_node(t_list **head_a)
@@ -99,3 +71,4 @@ void	ft_sort_three_node(t_list **head_a)
 	if (!ft_is_sorted(head_a))
 		swap("a", head_a, NULL);
 }
+

@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:47:44 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/04/24 01:45:31 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/24 12:23:09 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 /*                                                                            */
 /******************************************************************************/
 
+void	ft_sort_five_node(t_list **a, t_list **b, int a_size);
 void	ft_sort_three_node(t_list **head_a);
 void	ft_turk_sort(t_list **a, t_list **b);
 
@@ -74,6 +75,16 @@ void	ft_print_stack(t_list **head_a, t_list **head_b);
 
 /******************************************************************************/
 /*                                                                            */
+/* research_fonction                                                          */
+/*                                                                            */
+/******************************************************************************/
+
+t_list	*ft_find_min(t_list **stack);
+t_list	*ft_find_max(t_list **stack);
+void	ft_find_target(t_list **stack, t_list *node, char *direction);
+
+/******************************************************************************/
+/*                                                                            */
 /* rules                                                                      */
 /*                                                                            */
 /******************************************************************************/
@@ -89,8 +100,6 @@ void	ft_rotate_stack(t_list **stack);
 /*                                                                            */
 /******************************************************************************/
 
-t_list	*ft_find_min(t_list **stack);
-t_list	*ft_find_max(t_list **stack);
 bool	ft_is_sorted(t_list **stack);
 int		ft_stack_size(t_list	**stack);
 
