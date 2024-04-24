@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 07:08:25 by tom               #+#    #+#             */
-/*   Updated: 2024/04/23 07:54:13 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/24 14:52:42 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,17 @@ void	ft_rotate_stack(t_list **stack)
 
 void	ft_rev_rotate_stack(t_list **stack)
 {
-	t_list *new_node;
-	t_list *tmp;
+	t_list	*last;
+	t_list	*before_last;
 
-	if (!stack)
-		return ;
-	new_node = ft_lstnew(ft_lstlast(*stack)->content);
-	new_node->next = *stack;
-	*stack = new_node;
-	tmp = *stack;
-	while (tmp->next->next)
-		tmp = tmp->next;
-	free(tmp->next);
-	tmp->next = NULL;
+	before_last = *stack;
+	last = before_last->next;
+	while (last->next)
+	{
+		before_last = before_last->next;
+		last = before_last->next;
+	}
+	before_last->next = NULL;
+	last->next = *stack;
+	*stack = last;
 }

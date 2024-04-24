@@ -6,11 +6,32 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 12:20:53 by tom               #+#    #+#             */
-/*   Updated: 2024/04/24 12:21:18 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/24 14:17:02 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_find_target_bis(t_list **stack, t_list *node)
+{
+	t_list	*tmp;
+	int		n;
+
+	n = ft_find_min(stack)->content;
+	if (n < node->content)
+		{
+			while (tmp->next && tmp->content > node->content)
+				tmp = tmp->next;
+			node->target = tmp;
+		}
+		else if (n > node->content)
+		{
+			n = ft_find_max(stack)->content;
+			while (tmp->next && tmp->content != n)
+				tmp = tmp->next;
+			node->target = tmp;
+		}
+}
 
 void	ft_find_target(t_list **stack, t_list *node, char *direction)
 {
@@ -36,7 +57,7 @@ void	ft_find_target(t_list **stack, t_list *node, char *direction)
 		}
 	}
 	else
-		return ;
+		ft_find_target_bis(stack, node);
 }
 
 t_list	*ft_find_max(t_list **stack)
@@ -69,4 +90,24 @@ t_list	*ft_find_min(t_list **stack)
 		tmp = tmp->next;
 	}
 	return (min);
+}
+
+t_list	*find_min_cost(t_list **stack)
+{
+	t_list	*tmp;
+	t_list	*min_cost;
+	t_list	*min;
+	t_list	*max;
+	
+	min = ft_find_min(stack);
+	max = ft_find_max(stack);
+	tmp = *stack;
+	min_cost = tmp;
+	while (tmp)
+	{
+		if (tmp->cost < min_cost->cost && tmp != min && tmp != max)
+			min_cost = tmp;
+		tmp = tmp->next;
+	}
+	return (min_cost);
 }

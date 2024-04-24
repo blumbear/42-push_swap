@@ -6,11 +6,19 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 08:05:44 by tom               #+#    #+#             */
-/*   Updated: 2024/04/24 13:08:03 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/24 15:02:49 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// void	ft_sort_else(t_list **a, t_list **b)
+// {
+// 	t_list	*tmp;
+
+
+// }
+
 
 void	ft_turk_sort(t_list **a, t_list **b)
 {
@@ -23,33 +31,35 @@ void	ft_turk_sort(t_list **a, t_list **b)
 		ft_sort_three_node(a);
 	else if (a_size <= 5)
 		ft_sort_five_node(a, b, a_size);
+	// else
+	// 	ft_sort_else(a, b);
+	ft_print_stack(a, b);
 }
 
 void	ft_sort_five_node(t_list **a, t_list **b, int a_size)
 {
-	t_list	*tmp;
-
-	ft_set_index(a, b);
-	ft_set_mediane(a);
-	ft_fill_stack_b(a, b, a_size);
+	ft_fill_stack_b_five(a, b, a_size);
 	ft_sort_three_node(a);
 	while (*b)
 	{
-		ft_find_target(a, (*b), "b to a");
-		while ((*a) != (*b)->target)
-			rotate("a", a, b);
-		push('a', a, b);
 		ft_set_index(a, b);
 		ft_set_mediane(a);
+		ft_find_target(a, *b, "b to a");
+		while ((*a) != (*b)->target)
+		{
+			if ((*b)->target->above_mediane)
+				rotate("a", a, b);
+			else
+			 	reverse_rotate("a", a, b);
+		}
+		push('a', a, b);
 	}
-	tmp = ft_find_min(a);
-	if (tmp->above_mediane)
+	if (ft_find_min(a)->above_mediane)
 		while (!ft_is_sorted(a))
 			rotate("a", a, b);
 	else
 		while (!ft_is_sorted(a))
 			reverse_rotate("a", a, b);
-	ft_print_stack(a, b);
 }
 
 void	ft_sort_three_node(t_list **head_a)
@@ -69,4 +79,3 @@ void	ft_sort_three_node(t_list **head_a)
 	if (!ft_is_sorted(head_a))
 		swap("a", head_a, NULL);
 }
-

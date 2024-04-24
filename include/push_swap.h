@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:47:44 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/04/24 13:11:02 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/24 14:12:58 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	ft_turk_sort(t_list **a, t_list **b);
 /******************************************************************************/
 
 void	ft_set_index(t_list **a, t_list **b);
+void	set_cost(t_list **a, t_list **b, char stack);
+void	set_target(t_list **a, t_list **b, char from);
 void	ft_set_mediane(t_list **stack);
 
 /******************************************************************************/
@@ -41,6 +43,7 @@ void	ft_set_mediane(t_list **stack);
 /******************************************************************************/
 
 void	ft_fill_stack_b(t_list **a, t_list **b, int a_size);
+void	ft_fill_stack_b_five(t_list **a, t_list **b, int a_size);
 void	ft_fill_stack_a(char **list, t_list **a, bool splitted);
 
 /******************************************************************************/
@@ -89,6 +92,7 @@ void	ft_print_stack(t_list **head_a, t_list **head_b);
 
 t_list	*ft_find_min(t_list **stack);
 t_list	*ft_find_max(t_list **stack);
+t_list	*find_min_cost(t_list **stack);
 void	ft_find_target(t_list **stack, t_list *node, char *direction);
 
 /******************************************************************************/
@@ -110,6 +114,6 @@ void	ft_rotate_stack(t_list **stack);
 
 bool	ft_is_sorted(t_list **stack);
 int		ft_stack_size(t_list	**stack);
-int	ft_is_not_double(t_list **stack);
+int		ft_is_not_double(t_list **stack);
 
 #endif
