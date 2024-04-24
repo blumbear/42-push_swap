@@ -30,6 +30,10 @@ typedef struct s_list
 {
 	int				content;
 	struct s_list	*next;
+	struct s_list	*target;
+	int				cost;
+	int				index;
+	bool			above_mediane;
 }	t_list;
 
 /******************************************************************************/
@@ -46,13 +50,9 @@ typedef struct s_list
 #  define MAX_FD 128
 # endif
 
-# ifndef MAX_INT
-#  define MAX_INT 2147483647
-# endif
+# define MAX_INT 2147483647
 
-# ifndef MIN_INT
-#  define MIN_INT -2147483648
-# endif
+# define MIN_INT -2147483648
 
 /******************************************************************************/
 /*                                                                            */

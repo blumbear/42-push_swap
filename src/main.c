@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 16:18:58 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/04/23 08:39:45 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/24 02:22:40 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,6 @@ int	main(int ac, char **av)
 	b = malloc(sizeof(t_list *));
 	*b = NULL;
 	ft_turk_sort(a, b);
-	ft_print_stack(a);
-	ft_printf("--------\n");
-	ft_print_stack(b);
+	//ft_print_stack(a, b);
 	ft_error(a, b, NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 07:38:57 by tom               #+#    #+#             */
-/*   Updated: 2024/04/23 07:47:36 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/24 00:24:05 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ void	swap(char *stacks, t_list **a, t_list **b)
 	}
 }
 
-void	push(char stacks, t_list **a, t_list **b)
+void	push(char stack, t_list **a, t_list **b)
 {
-	if (stacks == 'a')
+	if (stack == 'a')
 		ft_push_node(b, a);
-	else if (stacks == 'b')
+	else if (stack == 'b')
 		ft_push_node(a, b);
-	ft_printf("r%c\n", stacks);
+	ft_printf("p%c\n", stack);
 }
 
 void	rotate(char *stacks, t_list **a, t_list **b)

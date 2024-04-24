@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 18:27:38 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/04/23 07:07:11 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/24 01:19:13 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,27 @@ void	del_fun(int n)
 	(void)n;
 }
 
-void	ft_print_stack(t_list **stack)
+void	ft_print_stack(t_list **head_a, t_list **head_b)
 {
 	t_list	*tmp;
 
-	tmp = *stack;
+	tmp = *head_a;
 	while (tmp)
 	{
 		ft_printf("%d\n", tmp->content);
 		tmp = tmp->next;
 	}
+	ft_printf("--------\n");
+	if (head_b)
+	{
+		tmp = *head_b;
+		while (tmp)
+		{
+			ft_printf("%d\n", tmp->content);
+			tmp = tmp->next;
+		}
+	}
+	ft_printf("\n");
 }
 
 void	ft_error(t_list **a, t_list **b, char *error)
