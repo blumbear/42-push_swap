@@ -17,6 +17,7 @@ void	ft_find_target_bis(t_list **stack, t_list *node)
 	t_list	*tmp;
 	int		n;
 
+	tmp = *stack;
 	n = ft_find_min(stack)->content;
 	if (n < node->content)
 		{
