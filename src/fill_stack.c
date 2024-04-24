@@ -64,30 +64,18 @@ void	ft_fill_stack_a(char **list, t_list **a, bool splitted)
 	i = -1;
 	while (list[++i])
 	{
-		tmp = ft_atoi(list[i]);
-		if (ft_strlen(list[i]) > 11)
+		tmp = ft_atol(list[i]);
+		if (ft_strlen(list[i]) > 11 || tmp > MAX_INT || tmp < MIN_INT)
 		{
 			if (splitted)
 				ft_free_double_array(list);
-			ft_error(a, NULL, "The value mist be between MIN_INT and MAX_INT");
-		}
-		if (tmp > MAX_INT)
-		{
-			if (splitted)
-				ft_free_double_array(list);
-			ft_error(a, NULL, "The value must be lower MAX_INT");
-		}
-		if (tmp < MIN_INT)
-		{
-			if (splitted)
-				ft_free_double_array(list);
-			ft_error(a, NULL, "The value must be upper than MIN_INT");
+			ft_error(a, NULL, "The value must be between MIN_INT and MAX_INT");
 		}
 		if (ft_strlen(list[i]) != ft_intlen(tmp))
 		{
 			if (splitted)
 				ft_free_double_array(list);
-			ft_error(a, NULL, "The value cant contain any char");
+			ft_error(a, NULL, "The value can't contain any char");
 		}
 		ft_lstadd_back(a, ft_lstnew((int)tmp));
 	}
