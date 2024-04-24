@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:47:44 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/04/24 12:23:09 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/24 13:11:02 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,14 @@ void	ft_turk_sort(t_list **a, t_list **b);
 void	ft_set_index(t_list **a, t_list **b);
 void	ft_set_mediane(t_list **stack);
 
+/******************************************************************************/
+/*                                                                            */
+/* fill_stack                                                                 */
+/*                                                                            */
+/******************************************************************************/
+
+void	ft_fill_stack_b(t_list **a, t_list **b, int a_size);
+void	ft_fill_stack_a(char **list, t_list **a, bool splitted);
 
 /******************************************************************************/
 /*                                                                            */
@@ -102,6 +110,6 @@ void	ft_rotate_stack(t_list **stack);
 
 bool	ft_is_sorted(t_list **stack);
 int		ft_stack_size(t_list	**stack);
-
+int	ft_is_not_double(t_list **stack);
 
 #endif

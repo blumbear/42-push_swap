@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 08:05:44 by tom               #+#    #+#             */
-/*   Updated: 2024/04/24 13:02:04 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/24 13:08:03 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,26 +23,6 @@ void	ft_turk_sort(t_list **a, t_list **b)
 		ft_sort_three_node(a);
 	else if (a_size <= 5)
 		ft_sort_five_node(a, b, a_size);
-}
-
-void	ft_fill_stack_b(t_list **a, t_list **b, int a_size)
-{
-	int max;
-	int min;
-
-	max = ft_find_max(a)->content;
-	min = ft_find_min(a)->content;
-	while (a_size-- > 3)
-	{
-		if ((*a)->content == min || (*a)->content == max)
-		{
-			if ((*a)->next->content != min && (*a)->next->content != max)
-				rotate("a", a, b);
-			else
-				reverse_rotate("a", a, b);
-		}
-		push('b', a, b);
-	}
 }
 
 void	ft_sort_five_node(t_list **a, t_list **b, int a_size)
