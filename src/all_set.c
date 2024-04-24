@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 01:01:11 by tom               #+#    #+#             */
-/*   Updated: 2024/04/24 01:40:20 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/24 12:03:46 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	ft_set_index(t_list **a, t_list **b)
 	if (*a)
 	{
 		i = 0;
-		tmp = (*a);
-		while (tmp->next)
+		tmp = *a;
+		while (tmp)
 		{
 			tmp->index = i++;
 			tmp = tmp->next;
@@ -32,7 +32,7 @@ void	ft_set_index(t_list **a, t_list **b)
 		i = 0;
 		tmp = (*b);
 		tmp->index = i++;
-		while (tmp->next)
+		while (tmp)
 		{
 			tmp->index = i++;
 			tmp = tmp->next;
@@ -49,7 +49,7 @@ void	ft_set_mediane(t_list **stack)
 		return ;
 	mediane = ft_stack_size(stack) / 2;
 	tmp = (*stack);
-	while (tmp->next)
+	while (tmp)
 	{
 		tmp->above_mediane = (tmp->index <= mediane);
 		tmp = tmp->next;

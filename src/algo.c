@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 08:05:44 by tom               #+#    #+#             */
-/*   Updated: 2024/04/24 02:00:57 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/24 12:18:01 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,13 @@ void	ft_find_target(t_list **stack, t_list *node, char *direction)
 				tmp = tmp->next;
 			node->target = tmp;
 		}
+		else if (n < node->content)
+		{
+			n = ft_find_min(stack)->content;
+			while (tmp->next && tmp->content != n)
+				tmp = tmp->next;
+			node->target = tmp;
+		}
 	}
 	else
 		return ;
@@ -39,24 +46,27 @@ void	ft_sort_five_node(t_list **a, t_list **b, int a_size)
 
 	ft_set_index(a, b);
 	ft_set_mediane(a);
-	if (a_size == 4)
-	{
+	if (a_size == 5)
 		push('b', a, b);
-		ft_sort_three_node(a);
+	push('b', a, b);
+	ft_sort_three_node(a);
+	while (*b)
+	{
 		ft_find_target(a, (*b), "b to a");
 		while ((*a) != (*b)->target)
-			rotate("a", a, b);
+			{rotate("a", a, b);ft_printf("t");}
 		push('a', a, b);
+		ft_set_index(a, b);
 		ft_set_mediane(a);
-		tmp = ft_find_min(a);
-		if (tmp->above_mediane == true)
-			while (!ft_is_sorted(a))
-				rotate("a", a, b);
-		else
-			while (!ft_is_sorted(a))
-				reverse_rotate("a", a, b);
-		ft_print_stack(a, b);
 	}
+	tmp = ft_find_min(a);
+	if (tmp->above_mediane)
+		while (!ft_is_sorted(a))
+			rotate("a", a, b);
+	else
+		while (!ft_is_sorted(a))
+			reverse_rotate("a", a, b);
+	ft_print_stack(a, b);
 }
 
 void	ft_turk_sort(t_list **a, t_list **b)
