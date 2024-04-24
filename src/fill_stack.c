@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 13:07:45 by tom               #+#    #+#             */
-/*   Updated: 2024/04/24 14:12:43 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/24 22:00:11 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,25 +59,36 @@ void	ft_fill_stack_b(t_list **a, t_list **b, int a_size)
 void	ft_fill_stack_a(char **list, t_list **a, bool splitted)
 {
 	long int	tmp;
-	int	i;
+	int			i;
 
-	i = 0;
-	while (list[i])
+	i = -1;
+	while (list[++i])
 	{
 		tmp = ft_atoi(list[i]);
-		if (tmp > MAX_INT || tmp < MIN_INT)
+		if (ft_strlen(list[i]) > 11)
 		{
 			if (splitted)
 				ft_free_double_array(list);
-			ft_error(a, NULL, "The int must be between MIN_INT and MAX_INT");
+			ft_error(a, NULL, "The value mist be between MIN_INT and MAX_INT");
 		}
-		if (ft_intlen(tmp) != ft_strlen(list[i]) && tmp != 0)
+		if (tmp > MAX_INT)
 		{
 			if (splitted)
 				ft_free_double_array(list);
-			ft_error(a, NULL, "An char is in the int list");
+			ft_error(a, NULL, "The value must be lower MAX_INT");
+		}
+		if (tmp < MIN_INT)
+		{
+			if (splitted)
+				ft_free_double_array(list);
+			ft_error(a, NULL, "The value must be upper than MIN_INT");
+		}
+		if (ft_strlen(list[i]) != ft_intlen(tmp))
+		{
+			if (splitted)
+				ft_free_double_array(list);
+			ft_error(a, NULL, "The value cant contain any char");
 		}
 		ft_lstadd_back(a, ft_lstnew((int)tmp));
-		i++;
 	}
 }
