@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 13:07:45 by tom               #+#    #+#             */
-/*   Updated: 2024/04/25 16:55:13 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/25 17:27:26 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	ft_fill_stack_b(t_list **a, t_list **b, int a_size)
 	t_list	*tmp;
 	int		max;
 	int		min;
+	//int		min_cost;
 
 	max = ft_find_max(a)->content;
 	min = ft_find_min(a)->content;
@@ -45,12 +46,15 @@ void	ft_fill_stack_b(t_list **a, t_list **b, int a_size)
 		set_target(a, b, 'a');
 		set_cost(a, b, 'a');
 		tmp = find_min_cost(a);
-		if (tmp->content == min || tmp->content == max)
+		if (*b)
 		{
-			if ((*a)->next->content != min && (*a)->next->content != max)
-				rotate("a", a, b);
-			else
-				reverse_rotate("a", a, b);
+			if (tmp->content == min || tmp->content == max)
+			{
+				if ((*a)->next->content != min && (*a)->next->content != max)
+					rotate("a", a, b);
+				else
+					reverse_rotate("a", a, b);
+			}
 		}
 		push('b', a, b);
 	}

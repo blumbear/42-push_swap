@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 07:08:25 by tom               #+#    #+#             */
-/*   Updated: 2024/04/24 14:52:42 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/25 17:29:20 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,30 +24,25 @@ void	ft_swap_nodes(t_list **stack)
 void	ft_push_node(t_list **head_p, t_list **head_r)
 {
 	t_list	*new_node;
-	t_list	*tmp;
 
 	if (!*head_p)
 		return ;
-	new_node = ft_lstnew((*head_p)->content);
+	new_node = *head_p;
+	*head_p = (*head_p)->next;
 	new_node->next = *head_r;
 	*head_r = new_node;
-	tmp = *head_p;
-	*head_p = (*head_p)->next;
-	free(tmp);
 }
 
 void	ft_rotate_stack(t_list **stack)
 {
-	t_list *new_node;
-	t_list *tmp;
+	t_list *first;
 
 	if (!stack)
 		return ;
-	new_node = ft_lstnew((*stack)->content);
-	ft_lstadd_back(stack, new_node);
-	tmp = *stack;
+	first = *stack;
 	*stack = (*stack)->next;
-	free(tmp);
+	first->next = NULL;
+	ft_lstadd_back(stack, first);
 }
 
 void	ft_rev_rotate_stack(t_list **stack)

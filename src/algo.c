@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 08:05:44 by tom               #+#    #+#             */
-/*   Updated: 2024/04/24 21:28:04 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/25 17:14:43 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	ft_turk_sort(t_list **a, t_list **b)
 	int a_size;
 
 	a_size = ft_stack_size(a);
-	if (ft_is_sorted(a))
-		return ;
 	if (a_size <= 3)
 		ft_sort_three_node(a);
 	else if (a_size <= 5)
