@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 13:07:45 by tom               #+#    #+#             */
-/*   Updated: 2024/04/24 22:00:11 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/25 16:55:13 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,23 +65,11 @@ void	ft_fill_stack_a(char **list, t_list **a, bool splitted)
 	while (list[++i])
 	{
 		tmp = ft_atoi(list[i]);
-		if (ft_strlen(list[i]) > 11)
+		if (tmp > MAX_INT || tmp < MIN_INT || ft_strlen(list[i]) > 11)
 		{
 			if (splitted)
 				ft_free_double_array(list);
 			ft_error(a, NULL, "The value mist be between MIN_INT and MAX_INT");
-		}
-		if (tmp > MAX_INT)
-		{
-			if (splitted)
-				ft_free_double_array(list);
-			ft_error(a, NULL, "The value must be lower MAX_INT");
-		}
-		if (tmp < MIN_INT)
-		{
-			if (splitted)
-				ft_free_double_array(list);
-			ft_error(a, NULL, "The value must be upper than MIN_INT");
 		}
 		if (ft_strlen(list[i]) != ft_intlen(tmp))
 		{
