@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:47:44 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/04/24 14:12:58 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/29 16:15:01 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 /*                                                                            */
 /******************************************************************************/
 
-void	ft_sort_five_node(t_list **a, t_list **b, int a_size);
+void	ft_sort_five_node(t_list **a, t_list **b);
 void	ft_sort_three_node(t_list **head_a);
 void	ft_turk_sort(t_list **a, t_list **b);
 
@@ -31,10 +31,10 @@ void	ft_turk_sort(t_list **a, t_list **b);
 /*                                                                            */
 /******************************************************************************/
 
-void	ft_set_index(t_list **a, t_list **b);
+void	set_index(t_list **a, t_list **b);
 void	set_cost(t_list **a, t_list **b, char stack);
 void	set_target(t_list **a, t_list **b, char from);
-void	ft_set_mediane(t_list **stack);
+void	set_mediane(t_list **a, t_list **b);
 
 /******************************************************************************/
 /*                                                                            */
@@ -43,8 +43,9 @@ void	ft_set_mediane(t_list **stack);
 /******************************************************************************/
 
 void	ft_fill_stack_b(t_list **a, t_list **b, int a_size);
-void	ft_fill_stack_b_five(t_list **a, t_list **b, int a_size);
+void	ft_fill_stack_b_five(t_list **a, t_list **b);
 void	ft_fill_stack_a(char **list, t_list **a, bool splitted);
+void	ft_place_on_top_second(t_list **a, t_list **b, t_list *min_cost);
 
 /******************************************************************************/
 /*                                                                            */

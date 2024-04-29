@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 12:20:53 by tom               #+#    #+#             */
-/*   Updated: 2024/04/24 14:17:02 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/29 16:23:00 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,24 @@ void	ft_find_target_bis(t_list **stack, t_list *node)
 	t_list	*tmp;
 	int		n;
 
-	n = ft_find_min(stack)->content;
-	if (n < node->content)
+	if (!*stack)
+		return ;
+	node->target = NULL;
+	tmp = *stack;
+	n = node->content - tmp->content;
+	while (tmp)
+	{
+		if (node->content > tmp->content &&
+				(node->content - tmp->content <= n || n < 0))
 		{
-			while (tmp->next && tmp->content > node->content)
-				tmp = tmp->next;
+			n = node->content - tmp->content;
 			node->target = tmp;
 		}
-		else if (n > node->content)
-		{
-			n = ft_find_max(stack)->content;
-			while (tmp->next && tmp->content != n)
-				tmp = tmp->next;
-			node->target = tmp;
-		}
+		tmp = tmp->next;
+	}
+	if (!node->target)
+		node->target = ft_find_max(stack);
+	ft_printf("%d -> %d\n", node->content , node->target->content);
 }
 
 void	ft_find_target(t_list **stack, t_list *node, char *direction)
@@ -38,23 +42,26 @@ void	ft_find_target(t_list **stack, t_list *node, char *direction)
 	t_list	*tmp;
 	int		n;
 
-	tmp = (*stack);
-	n = ft_find_max(stack)->content;
 	if (ft_strncmp(direction, "b to a", 6) == 0)
 	{
-		if (n > node->content)
+		if (!*stack)
+			return ;
+		node->target = NULL;
+		tmp = *stack;
+		n = tmp->content - node->content;
+		while (tmp)
 		{
-			while (tmp->next && tmp->content < node->content)
-				tmp = tmp->next;
-			node->target = tmp;
+			if (tmp->content > node->content &&
+					(tmp->content - node->content <= n || n < 0))
+			{
+				n = tmp->content - node->content;
+				node->target = tmp;
+			}
+			tmp = tmp->next;
 		}
-		else if (n < node->content)
-		{
-			n = ft_find_min(stack)->content;
-			while (tmp->next && tmp->content != n)
-				tmp = tmp->next;
-			node->target = tmp;
-		}
+		if (!node->target)
+			node->target = ft_find_min(stack);
+		ft_printf("%d -> %d\n", node->content , node->target->content);
 	}
 	else
 		ft_find_target_bis(stack, node);
@@ -66,7 +73,7 @@ t_list	*ft_find_max(t_list **stack)
 	t_list	*max;
 
 	tmp = *stack;
-	max = tmp;
+	max = *stack;
 	while (tmp)
 	{
 		if (tmp->content > max->content)
@@ -82,7 +89,7 @@ t_list	*ft_find_min(t_list **stack)
 	t_list	*min;
 
 	tmp = *stack;
-	min = tmp;
+	min = *stack;
 	while (tmp)
 	{
 		if (tmp->content < min->content)
@@ -102,10 +109,12 @@ t_list	*find_min_cost(t_list **stack)
 	min = ft_find_min(stack);
 	max = ft_find_max(stack);
 	tmp = *stack;
-	min_cost = tmp;
+	min_cost = *stack;
 	while (tmp)
 	{
-		if (tmp->cost < min_cost->cost && tmp != min && tmp != max)
+		if (min_cost == max || min_cost == min)
+			min_cost = tmp;
+		else if (tmp != min && tmp != max && tmp->cost < min_cost->cost)
 			min_cost = tmp;
 		tmp = tmp->next;
 	}

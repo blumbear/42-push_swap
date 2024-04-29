@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 18:27:38 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/04/24 12:04:09 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/25 20:01:37 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ void	ft_print_stack(t_list **head_a, t_list **head_b)
 	t_list	*tmp;
 
 	tmp = *head_a;
-	ft_printf("--------\n");
+	ft_printf("A--------\n");
 	while (tmp)
 	{
 		ft_printf("%d\n", tmp->content);
 		tmp = tmp->next;
 	}
-	ft_printf("--------\n");
+	ft_printf("B--------\n");
 	if (head_b)
 	{
 		tmp = *head_b;
