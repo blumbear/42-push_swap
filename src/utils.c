@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 16:20:18 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/04/24 13:10:53 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/30 14:29:14 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,16 @@ int	ft_is_not_double(t_list **stack)
 		}
 		tmp_a = tmp_a->next;
 	}
+	return (1);
+}
+
+int	ft_all_isdigit(char *str)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i])
+		if (!ft_isdigit(str[i]))
+			return (0);
 	return (1);
 }

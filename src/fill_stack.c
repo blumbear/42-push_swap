@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 13:07:45 by tom               #+#    #+#             */
-/*   Updated: 2024/04/29 16:24:34 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/30 14:29:44 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,16 @@ void	ft_place_on_top_second(t_list **a, t_list **b, t_list *min_cost)
 	if (*b != min_cost && *a != min_cost->target && !min_cost->target->above_mediane && !min_cost->above_mediane)
 		while (min_cost != *b && min_cost->target != *a)
 			reverse_rotate("ab", a, b);
-	if (*b != min_cost && *a == min_cost->target && min_cost->above_mediane)
+	if (*b != min_cost && min_cost->above_mediane)
 		while (min_cost != *b)
 			rotate("b", a, b);
-	if (*b == min_cost && *a != min_cost->target && min_cost->target->above_mediane)
+	if (*a != min_cost->target && min_cost->target->above_mediane)
 		while (min_cost->target != *a)
 			rotate("a", a, b);
-	if (*b != min_cost && *a == min_cost->target && !min_cost->above_mediane)
+	if (*b != min_cost && !min_cost->above_mediane)
 		while (*b != min_cost)
 			reverse_rotate("b", a, b);
-	if (*b == min_cost && *a != min_cost->target && !min_cost->target->above_mediane)
+	if (*a != min_cost->target && !min_cost->target->above_mediane)
 		while (min_cost->target != *a)
 			reverse_rotate("a", a, b);
 }
@@ -71,16 +71,16 @@ void	ft_place_on_top_first(t_list **a, t_list **b, t_list *min_cost)
 	if (*a != min_cost && *b != min_cost->target && !min_cost->target->above_mediane && !min_cost->above_mediane)
 		while (min_cost != *a && min_cost->target != *b)
 			reverse_rotate("ab", a, b);
-	if (*a != min_cost && *b == min_cost->target && min_cost->above_mediane)
+	if (*a != min_cost && min_cost->above_mediane)
 		while (min_cost != *a)
 			rotate("a", a, b);
-	if (*a == min_cost && *b != min_cost->target && min_cost->target->above_mediane)
-		while (min_cost->target != *b)
-			rotate("b", a, b);
-	if (*a != min_cost && *b == min_cost->target && !min_cost->above_mediane)
+	if (*a != min_cost && !min_cost->above_mediane)
 		while (min_cost != *a)
 			reverse_rotate("a", a, b);
-	if (*a == min_cost && *b != min_cost->target && !min_cost->target->above_mediane)
+	if (*b != min_cost->target && min_cost->target->above_mediane)
+		while (min_cost->target != *b)
+			rotate("b", a, b);
+	if (*b != min_cost->target && !min_cost->target->above_mediane)
 		while (min_cost->target != *b)
 			reverse_rotate("b", a, b);
 }
@@ -94,9 +94,9 @@ void	ft_fill_stack_b(t_list **a, t_list **b, int a_size)
 	max = ft_find_max(a);
 	min = ft_find_min(a);
 	min_cost = NULL;
-	if ((*a)->content == min->content || (*a)->content == max->content)
+	if ( *a == min || *a == max)
 	{
-		if ((*a)->next->content != min->content && (*a)->next->content != max->content)
+		if ((*a)->next != min && (*a)->next != max)
 			rotate("a", a, b);
 		else
 			reverse_rotate("a", a, b);
@@ -105,8 +105,6 @@ void	ft_fill_stack_b(t_list **a, t_list **b, int a_size)
 	while (--a_size > 3)
 	{
 		ft_place_on_top_first(a, b, min_cost);
-		if (min_cost == max)
-			ft_printf("kk\n");
 		push('b', a, b);
 	}
 }
@@ -126,7 +124,7 @@ void	ft_fill_stack_a(char **list, t_list **a, bool splitted)
 				ft_free_double_array(list);
 			ft_error(a, NULL, "The value mist be between MIN_INT and MAX_INT");
 		}
-		if (ft_strlen(list[i]) != ft_intlen(tmp))
+		if (!ft_all_isdigit(list[i]))
 		{
 			if (splitted)
 				ft_free_double_array(list);
