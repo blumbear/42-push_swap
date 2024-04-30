@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 12:20:53 by tom               #+#    #+#             */
-/*   Updated: 2024/04/29 16:23:00 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/29 16:39:37 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	ft_find_target_bis(t_list **stack, t_list *node)
 	}
 	if (!node->target)
 		node->target = ft_find_max(stack);
-	ft_printf("%d -> %d\n", node->content , node->target->content);
 }
 
 void	ft_find_target(t_list **stack, t_list *node, char *direction)
@@ -61,7 +60,6 @@ void	ft_find_target(t_list **stack, t_list *node, char *direction)
 		}
 		if (!node->target)
 			node->target = ft_find_min(stack);
-		ft_printf("%d -> %d\n", node->content , node->target->content);
 	}
 	else
 		ft_find_target_bis(stack, node);

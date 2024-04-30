@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 08:05:44 by tom               #+#    #+#             */
-/*   Updated: 2024/04/29 16:23:46 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/29 16:40:17 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_sort_else(t_list **a, t_list **b)
 {
 	ft_fill_stack_b(a, b, ft_stack_size(a));
 	ft_sort_three_node(a);
-	ft_printf("---------------------------------------------------------------------\n");
 	while (*b)
 	{
 		ft_place_on_top_second(a, b, NULL);
@@ -44,7 +43,7 @@ void	ft_turk_sort(t_list **a, t_list **b)
 		ft_sort_five_node(a, b);
 	else
 		ft_sort_else(a, b);
-	ft_print_stack(a, b);
+	// ft_print_stack(a, b);
 }
 
 void	ft_sort_five_node(t_list **a, t_list **b)

@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 01:01:11 by tom               #+#    #+#             */
-/*   Updated: 2024/04/29 16:05:13 by tom              ###   ########.fr       */
+/*   Updated: 2024/04/29 16:40:24 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,17 +106,13 @@ void	set_target(t_list **a, t_list **b, char from)
 		tmp = *b;
 	if (!tmp)
 		return ;
-	ft_printf("HERE\n");
 	while (tmp)
 	{
 		if (from == 'a')
 			ft_find_target(b, tmp, "a to b");
 		else
 			ft_find_target(a, tmp, "b to a");
-		// ft_printf("%d target -> %d\n", tmp->content, tmp->target->content);
 		tmp = tmp->next;
 	}
-	ft_printf("HERE\n");
-	ft_print_stack(a, b);
-	
+	// ft_print_stack(a, b);
 }
