@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 08:05:44 by tom               #+#    #+#             */
-/*   Updated: 2024/05/06 15:24:27 by tom              ###   ########.fr       */
+/*   Updated: 2024/05/06 16:57:03 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	ft_turk_sort(t_list **a, t_list **b)
 		ft_sort_five_node(a, b);
 	else
 		ft_sort_else(a, b);
-	// ft_print_stack(a, b);
 }
 
 void	ft_sort_five_node(t_list **a, t_list **b)

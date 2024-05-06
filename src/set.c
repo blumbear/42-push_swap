@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 01:01:11 by tom               #+#    #+#             */
-/*   Updated: 2024/05/06 15:43:08 by tom              ###   ########.fr       */
+/*   Updated: 2024/05/06 16:56:48 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,19 +78,17 @@ void	set_cost(t_list **a, t_list **b, char stack)
 	{
 		if (stack == 'a')
 		{
-			cost_to_top_a = tmp->index - ((ft_stack_size(a) - tmp->index + 1) * !tmp->above_mediane);
-			cost_to_top_b = tmp->target->index - ((ft_stack_size(b) - tmp->target->index) * !tmp->target->above_mediane);
+			cost_to_top_a = tmp->index + ((-tmp->index + (ft_stack_size(a) - tmp->index)) * !tmp->above_mediane);
+			cost_to_top_b = tmp->target->index + ((-tmp->target->index + (ft_stack_size(b) - tmp->target->index)) * !tmp->target->above_mediane);
 		}
 		else if (stack == 'b')
 		{
-			cost_to_top_b = tmp->index - ((ft_stack_size(b) - tmp->index) * !tmp->above_mediane);
-			cost_to_top_a = tmp->target->index - ((ft_stack_size(a) - tmp->target->index) * !tmp->target->above_mediane);
+			cost_to_top_b = tmp->index + ((-tmp->index + (ft_stack_size(b) - tmp->index)) * !tmp->above_mediane);
+			cost_to_top_a = tmp->target->index + ((-tmp->target->index + (ft_stack_size(a) - tmp->target->index)) * !tmp->target->above_mediane);
 		}
 		tmp->cost = cost_to_top_a + cost_to_top_b;
-		// ft_printf("%c | %d cost -> %d\n", stack, tmp->content, tmp->cost);
 		tmp = tmp->next;
 	}
-	// ft_print_stack(a, b);
 }
 
 void	set_target(t_list **a, t_list **b, char from)
@@ -111,5 +109,4 @@ void	set_target(t_list **a, t_list **b, char from)
 			ft_find_target(a, tmp, "b to a");
 		tmp = tmp->next;
 	}
-	// ft_print_stack(a, b);
 }
