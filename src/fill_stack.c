@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 13:07:45 by tom               #+#    #+#             */
-/*   Updated: 2024/04/30 14:29:44 by tom              ###   ########.fr       */
+/*   Updated: 2024/05/06 15:44:36 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void	ft_fill_stack_a(char **list, t_list **a, bool splitted)
 	i = -1;
 	while (list[++i])
 	{
-		tmp = ft_atoi(list[i]);
+		tmp = ft_atol(list[i]);
 		if (tmp > MAX_INT || tmp < MIN_INT || ft_strlen(list[i]) > 11)
 		{
 			if (splitted)

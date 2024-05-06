@@ -341,7 +341,7 @@ int				double_array_size(char **double_array);
  * @param str The string to be converted.
  * @return The converted value.
  */
-long			ft_atoi(const char *str);
+long			ft_atol(const char *str);
 
 /**
  * @brief Allocates memory for an array of `nmemb` elements of size bytes each

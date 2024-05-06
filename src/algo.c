@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 08:05:44 by tom               #+#    #+#             */
-/*   Updated: 2024/04/30 14:16:39 by tom              ###   ########.fr       */
+/*   Updated: 2024/05/06 15:24:27 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_sort_five_node(t_list **a, t_list **b)
 		set_index(a, b);
 		set_mediane(a, b);
 		ft_find_target(a, *b, "b to a");
-		while ((*a) != (*b)->target)
+		while (*a != (*b)->target)
 		{
 			if ((*b)->target->above_mediane)
 				rotate("a", a, b);
@@ -64,6 +64,8 @@ void	ft_sort_five_node(t_list **a, t_list **b)
 		}
 		push('a', a, b);
 	}
+	set_index(a, b);
+	set_mediane(a, b);
 	if (ft_find_min(a)->above_mediane)
 		while (!ft_is_sorted(a))
 			rotate("a", a, b);
