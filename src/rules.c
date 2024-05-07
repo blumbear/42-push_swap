@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rules.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ttaquet <ttaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 07:08:25 by tom               #+#    #+#             */
-/*   Updated: 2024/04/25 17:29:20 by tom              ###   ########.fr       */
+/*   Updated: 2024/05/07 18:34:27 by ttaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_swap_nodes(t_list **stack)
 {
-	int tmp;
+	int	tmp;
 
 	tmp = (*stack)->content;
 	(*stack)->content = (*stack)->next->content;
@@ -35,7 +35,7 @@ void	ft_push_node(t_list **head_p, t_list **head_r)
 
 void	ft_rotate_stack(t_list **stack)
 {
-	t_list *first;
+	t_list	*first;
 
 	if (!stack)
 		return ;

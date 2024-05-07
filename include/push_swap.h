@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ttaquet <ttaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:47:44 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/04/30 14:29:10 by tom              ###   ########.fr       */
+/*   Updated: 2024/05/07 18:44:38 by ttaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_turk_sort(t_list **a, t_list **b);
 /******************************************************************************/
 
 void	set_index(t_list **a, t_list **b);
-void	set_cost(t_list **a, t_list **b, char stack);
+void	select_cost(t_list **a, t_list **b, char stack);
 void	set_target(t_list **a, t_list **b, char from);
 void	set_mediane(t_list **a, t_list **b);
 
@@ -53,8 +53,8 @@ void	ft_place_on_top_second(t_list **a, t_list **b, t_list *min_cost);
 /*                                                                            */
 /******************************************************************************/
 
-void	reverse_rotate(char *stacks, t_list **a, t_list **b);
-void	rotate(char *stacks, t_list **a, t_list **b);
+void	reverse_rotate(char *stacks, t_list **a, t_list **b, bool print);
+void	rotate(char *stacks, t_list **a, t_list **b, bool print);
 
 /**
  * @brief This function push the node on the top of stack a or b on the top of
@@ -64,7 +64,7 @@ void	rotate(char *stacks, t_list **a, t_list **b);
  * @param a The stack a
  * @param b The stack b
  */
-void	push(char stacks, t_list **a, t_list **b);
+void	push(char stacks, t_list **a, t_list **b, bool print);
 
 /**
  * @brief This function swap the first two nodes of the 'stacks' and print
@@ -74,7 +74,7 @@ void	push(char stacks, t_list **a, t_list **b);
  * @param a The stack a
  * @param b The stack b
  */
-void	swap(char *stacks, t_list **a, t_list **b);
+void	swap(char *stacks, t_list **a, t_list **b, bool print);
 
 /******************************************************************************/
 /*                                                                            */

@@ -6,7 +6,7 @@
 /*   By: ttaquet <ttaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 01:01:11 by tom               #+#    #+#             */
-/*   Updated: 2024/05/07 15:13:32 by ttaquet          ###   ########.fr       */
+/*   Updated: 2024/05/07 18:51:52 by ttaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	set_mediane(t_list **a, t_list **b)
 {
 	int		mediane;
 	t_list	*tmp;
-	
+
 	if (!*a)
 		return ;
 	mediane = ft_stack_size(a) / 2;
@@ -64,11 +64,17 @@ void	set_mediane(t_list **a, t_list **b)
 	}
 }
 
-void	set_cost(t_list **a, t_list **b, char stack)
+void	set_cost(t_list *node, t_list *tnode, int stack_size, int tstack_size)
+{
+	node->cost = node->index
+		+ ((-node->index + stack_size) - node->index) * !node->above_mediane
+		+ tnode->index
+		+ (-tnode->index + tstack_size - tnode->index) * !tnode->above_mediane;
+}
+
+void	select_cost(t_list **a, t_list **b, char stack)
 {
 	t_list	*tmp;
-	int		cost_to_top_b;
-	int		cost_to_top_a;
 
 	tmp = NULL;
 	if (stack == 'a' && *a != NULL)
@@ -78,16 +84,9 @@ void	set_cost(t_list **a, t_list **b, char stack)
 	while (tmp)
 	{
 		if (stack == 'a')
-		{
-			cost_to_top_a = tmp->index + ((-tmp->index + (ft_stack_size(a) - tmp->index)) * !tmp->above_mediane);
-			cost_to_top_b = tmp->target->index + ((-tmp->target->index + (ft_stack_size(b) - tmp->target->index)) * !tmp->target->above_mediane);
-		}
+			set_cost(tmp, tmp->target, ft_stack_size(a), ft_stack_size(b));
 		else if (stack == 'b')
-		{
-			cost_to_top_b = tmp->index + ((-tmp->index + (ft_stack_size(b) - tmp->index)) * !tmp->above_mediane);
-			cost_to_top_a = tmp->target->index + ((-tmp->target->index + (ft_stack_size(a) - tmp->target->index)) * !tmp->target->above_mediane);
-		}
-		tmp->cost = cost_to_top_a + cost_to_top_b;
+			set_cost(tmp, tmp->target, ft_stack_size(b), ft_stack_size(a));
 		tmp = tmp->next;
 	}
 }
@@ -95,7 +94,7 @@ void	set_cost(t_list **a, t_list **b, char stack)
 void	set_target(t_list **a, t_list **b, char from)
 {
 	t_list	*tmp;
-	
+
 	if (from == 'a')
 		tmp = (*a);
 	else

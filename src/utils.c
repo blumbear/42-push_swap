@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ttaquet <ttaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 16:20:18 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/04/30 14:29:14 by tom              ###   ########.fr       */
+/*   Updated: 2024/05/07 18:54:09 by ttaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool ft_is_sorted(t_list **stack)
+bool	ft_is_sorted(t_list **stack)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = *stack;
 	while (tmp->next)
@@ -28,7 +28,7 @@ bool ft_is_sorted(t_list **stack)
 
 int	ft_stack_size(t_list	**stack)
 {
-	t_list *tmp;
+	t_list	*tmp;
 	int		i;
 
 	if (!stack || !*stack)
@@ -49,10 +49,10 @@ int	ft_is_not_double(t_list **stack)
 	t_list	*tmp_b;
 
 	tmp_a = *stack;
-	while(tmp_a)
+	while (tmp_a)
 	{
 		tmp_b = tmp_a->next;
-		while(tmp_b)
+		while (tmp_b)
 		{
 			if (tmp_a->content == tmp_b->content)
 				return (0);

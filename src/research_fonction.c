@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   research_fonction.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ttaquet <ttaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 12:20:53 by tom               #+#    #+#             */
-/*   Updated: 2024/04/29 16:39:37 by tom              ###   ########.fr       */
+/*   Updated: 2024/05/07 18:34:09 by ttaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	ft_find_target_bis(t_list **stack, t_list *node)
 	n = node->content - tmp->content;
 	while (tmp)
 	{
-		if (node->content > tmp->content &&
-				(node->content - tmp->content <= n || n < 0))
+		if (node->content > tmp->content
+			&& (node->content - tmp->content <= n || n < 0))
 		{
 			n = node->content - tmp->content;
 			node->target = tmp;
@@ -50,8 +50,8 @@ void	ft_find_target(t_list **stack, t_list *node, char *direction)
 		n = tmp->content - node->content;
 		while (tmp)
 		{
-			if (tmp->content > node->content &&
-					(tmp->content - node->content <= n || n < 0))
+			if (tmp->content > node->content
+				&& (tmp->content - node->content <= n || n < 0))
 			{
 				n = tmp->content - node->content;
 				node->target = tmp;
@@ -103,7 +103,7 @@ t_list	*find_min_cost(t_list **stack)
 	t_list	*min_cost;
 	t_list	*min;
 	t_list	*max;
-	
+
 	min = ft_find_min(stack);
 	max = ft_find_max(stack);
 	tmp = *stack;

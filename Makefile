@@ -1,52 +1,59 @@
 NAME = push_swap
+NAME_BONUS = checker
 
 LIBAMOA = libamoa/libamoa.a
 
 CC = cc
-CFLAGS += -Wall -Wextra -Werror -g -Iinclude
 
-LFLAGS = -Llibamoa
+CFLAGS =	-Wall -Wextra -Werror -g \
+			-Iinclude
 
-FILES = algo set fill_stack instruction main print_and_error \
-research_fonction rules utils
+LFLAGS =	-Llibamoa \
+			-lamoa
+
+FILES = algo fill_stack instruction main print_and_error research_fonction \
+rules set utils
+FILES_BONUS = checker
 
 OBJ_DIR = obj/
 SRC_DIR = src/
+BONUS_DIR = bonus/
 SRCS = $(addprefix $(SRC_DIR), $(addsuffix .c, $(FILES)))
 OBJS = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES)))
-
-.PHONY: all clean fclean re bonus
+SRCS_BONUS = $(addprefix $(BONUS_DIR), $(addsuffix .c, $(FILES_BONUS)))
+OBJS_BONUS = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES_BONUS))) $(filter-out $(OBJ_DIR)main.o, $(OBJS))
 
 all: $(NAME)
 
-bonus: all
+bonus: $(NAME_BONUS)
 
-clean:
-	@echo "\033[32m✔ Suppression des fichiers sources...\033[37m"
+clean :
 	rm -rf $(OBJ_DIR)
-	make clean -C libamoa
-	@echo "\033[32m✔ Suppression effectuer...\033[37m"
-
-fclean: clean
-	@echo "\033[32m✔ Suppression de l'éxécutable...\033[37m"
-	rm -rf $(NAME)
 	make fclean -C libamoa
-	@echo "\033[32m✔ Suppression effectuer...\033[37m"
+
+fclean : clean
+	rm -rf $(NAME)
+	rm -rf $(NAME_BONUS)
+	make fclean -C libamoa
 
 re: fclean all
 
-$(LIBAMOA) :
+$(NAME): $(OBJ_DIR) $(OBJS) $(LIBAMOA)
+	$(CC) -o $@ $(OBJS) $(LFLAGS)
+
+$(NAME_BONUS): $(OBJ_DIR) $(OBJS_BONUS) $(LIBAMOA)
+	$(CC) -o $@ $(OBJS_BONUS) $(LFLAGS)
+
+$(LIBAMOA):
 	make -C libamoa
 
-$(NAME): $(OBJ_DIR) $(OBJS) $(LIBAMOA)
-	@echo "\033[32m✔ Compilation des fichiers objets...\033[37m"
-	$(CC) -o $@ $(OBJS) $(LIBAMOA) $(LFLAGS)
-	@echo "\033[32m✔ executable crée...\033[37m"
-
 $(OBJ_DIR):
-	@echo "\033[32m✔ création du repertoire obj...\033[37m"
 	mkdir $@
-	@echo "\033[32m✔ repertoire obj crée...\033[37m"
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+obj/%.o: src/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
+
+obj/%.o: bonus/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+.PHONY: all clean fclean re bonus
