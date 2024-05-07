@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ttaquet <ttaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 12:42:07 by tom               #+#    #+#             */
-/*   Updated: 2024/04/24 12:42:53 by tom              ###   ########.fr       */
+/*   Updated: 2024/05/07 18:25:34 by ttaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libamoa.h"
 
-long int		ft_atol(const char *str)
+long int	ft_atol(const char *str)
 {
 	long int	res;
 	int			sign;

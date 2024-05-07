@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ttaquet <ttaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:29:44 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/04/24 12:43:25 by tom              ###   ########.fr       */
+/*   Updated: 2024/05/07 18:25:32 by ttaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libamoa.h"
 
-int		ft_atoi(const char	*str)
+int	ft_atoi(const char	*str)
 {
 	int	res;
 	int	sign;

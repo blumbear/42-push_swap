@@ -6,13 +6,13 @@
 /*   By: ttaquet <ttaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 14:31:34 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/05/07 15:16:28 by ttaquet          ###   ########.fr       */
+/*   Updated: 2024/05/07 18:25:00 by ttaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libamoa.h"
 
-void			ft_lstiter(t_list *list, void (*f)(int))
+void	ft_lstiter(t_list *list, void (*f)(int))
 {
 	while (list)
 	{

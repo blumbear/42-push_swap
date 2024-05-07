@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_double_array.c                             :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttaquet <ttaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 14:49:58 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/05/07 18:25:54 by ttaquet          ###   ########.fr       */
+/*   Created: 2024/05/07 17:00:49 by ttaquet           #+#    #+#             */
+/*   Updated: 2024/05/07 18:21:37 by ttaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libamoa.h"
 
-void	ft_free_double_array(char **double_array)
+int	ft_strcmp(char *first, char *second)
 {
 	int	i;
 
 	i = -1;
-	if (!double_array)
-		return ;
-	while (double_array[++i])
-		free(double_array[i]);
-	free(double_array);
+	while (first[++i] && second[i])
+		if (first[i] != second[i])
+			return (((unsigned char)first[i]) - ((unsigned char)second[i]));
+	return (((unsigned char)first[i]) - ((unsigned char)second[i]));
 }

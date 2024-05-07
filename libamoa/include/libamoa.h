@@ -469,6 +469,15 @@ char			**ft_split(char const *s, char c);
 char			*ft_strchr(const char *str, int c);
 
 /**
+ * @brief Compares with the lexical order characters of `s1`
+ * and `s2`.
+ * @param first A string.
+ * @param second A string.
+ * @return The lexical order of the two string.
+ */
+int				ft_strcmp(char *first, char *second);
+
+/**
  * @brief copies 'src' to 'dest'
  * 
  * @param dest A pointer to a memory area.
