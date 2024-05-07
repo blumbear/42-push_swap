@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ttaquet <ttaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 01:01:11 by tom               #+#    #+#             */
-/*   Updated: 2024/05/06 16:56:48 by tom              ###   ########.fr       */
+/*   Updated: 2024/05/07 15:13:32 by ttaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,10 @@ void	set_cost(t_list **a, t_list **b, char stack)
 	int		cost_to_top_b;
 	int		cost_to_top_a;
 
-	if (stack == 'a' && *a)
+	tmp = NULL;
+	if (stack == 'a' && *a != NULL)
 		tmp = *a;
-	else if (stack == 'b' && *b)
+	else if (stack == 'b' && *b != NULL)
 		tmp = *b;
 	while (tmp)
 	{
