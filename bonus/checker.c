@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttaquet <ttaquet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 16:08:58 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/05/07 18:23:31 by ttaquet          ###   ########.fr       */
+/*   Updated: 2024/05/08 15:57:28 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,5 @@ int	main(int ac, char **av)
 	b = malloc(sizeof(t_list *));
 	*b = NULL;
 	loop(a, b);
-	ft_print_stack(a, b);
 	ft_error(a, b, NULL);
 }
