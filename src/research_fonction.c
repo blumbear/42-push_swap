@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   research_fonction.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttaquet <ttaquet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 12:20:53 by tom               #+#    #+#             */
-/*   Updated: 2024/05/07 18:34:09 by ttaquet          ###   ########.fr       */
+/*   Updated: 2024/05/09 00:45:16 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,18 +101,12 @@ t_list	*find_min_cost(t_list **stack)
 {
 	t_list	*tmp;
 	t_list	*min_cost;
-	t_list	*min;
-	t_list	*max;
 
-	min = ft_find_min(stack);
-	max = ft_find_max(stack);
 	tmp = *stack;
 	min_cost = *stack;
 	while (tmp)
 	{
-		if (min_cost == max || min_cost == min)
-			min_cost = tmp;
-		else if (tmp != min && tmp != max && tmp->cost < min_cost->cost)
+		if (tmp->cost < min_cost->cost)
 			min_cost = tmp;
 		tmp = tmp->next;
 	}

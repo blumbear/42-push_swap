@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttaquet <ttaquet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:47:44 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/05/07 18:44:38 by ttaquet          ###   ########.fr       */
+/*   Updated: 2024/05/09 00:45:05 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	set_mediane(t_list **a, t_list **b);
 /******************************************************************************/
 
 void	ft_fill_stack_b(t_list **a, t_list **b, int a_size);
-void	ft_fill_stack_b_five(t_list **a, t_list **b);
 void	ft_fill_stack_a(char **list, t_list **a, bool splitted);
 void	ft_place_on_top_second(t_list **a, t_list **b, t_list *min_cost);
 

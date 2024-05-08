@@ -3,32 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   fill_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttaquet <ttaquet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 13:07:45 by tom               #+#    #+#             */
-/*   Updated: 2024/05/07 18:44:38 by ttaquet          ###   ########.fr       */
+/*   Updated: 2024/05/09 00:45:29 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_fill_stack_b_five(t_list **a, t_list **b)
-{
-	int	max;
-	int	min;
-
-	max = ft_find_max(a)->content;
-	min = ft_find_min(a)->content;
-	if ((*a)->content == min || (*a)->content == max)
-	{
-		if ((*a)->next->content != min && (*a)->next->content != max)
-			rotate("a", a, b, 1);
-		else
-			reverse_rotate("a", a, b, 1);
-	}
-	push('b', a, b, 1);
-	push('b', a, b, 1);
-}
 
 void	ft_place_on_top_second(t_list **a, t_list **b, t_list *min_cost)
 {
@@ -90,20 +72,9 @@ void	ft_place_on_top_first(t_list **a, t_list **b, t_list *min_cost)
 
 void	ft_fill_stack_b(t_list **a, t_list **b, int a_size)
 {
-	t_list	*min;
-	t_list	*max;
 	t_list	*min_cost;
 
-	max = ft_find_max(a);
-	min = ft_find_min(a);
 	min_cost = NULL;
-	if (*a == min || *a == max)
-	{
-		if ((*a)->next != min && (*a)->next != max)
-			rotate("a", a, b, 1);
-		else
-			reverse_rotate("a", a, b, 1);
-	}
 	push('b', a, b, 1);
 	while (--a_size > 3)
 	{
