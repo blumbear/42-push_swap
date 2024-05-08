@@ -50,7 +50,7 @@ void	loop(t_list **a, t_list **b)
 	if (!line)
 	{
 		if (ft_is_sorted(a))
-			ft_printf("OK");
+			ft_printf("OK\n");
 		free(line);
 		return ;
 	}
