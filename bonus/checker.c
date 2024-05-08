@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 16:08:58 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/05/08 15:57:28 by tom              ###   ########.fr       */
+/*   Updated: 2024/05/08 16:23:23 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,27 @@
 int	instruction(t_list **a, t_list **b, char *line)
 {
 	if (ft_strcmp(line, "sa\n") == 0)
-		swap("a", a, b, 1);
+		swap("a", a, b, 0);
 	else if (ft_strcmp(line, "sb\n") == 0)
-		swap("b", a, b, 1);
+		swap("b", a, b, 0);
 	else if (ft_strcmp(line, "ss\n") == 0)
-		swap("ab", a, b, 1);
+		swap("ab", a, b, 0);
 	else if (ft_strcmp(line, "ra\n") == 0)
-		rotate("a", a, b, 1);
+		rotate("a", a, b, 0);
 	else if (ft_strcmp(line, "rb\n") == 0)
-		rotate("b", a, b, 1);
+		rotate("b", a, b, 0);
 	else if (ft_strcmp(line, "rr\n") == 0)
-		rotate("ab", a, b, 1);
+		rotate("ab", a, b, 0);	
 	else if (ft_strcmp(line, "rra\n") == 0)
-		reverse_rotate("a", a, b, 1);
+		reverse_rotate("a", a, b, 0);
 	else if (ft_strcmp(line, "rrb\n") == 0)
-		reverse_rotate("b", a, b, 1);
+		reverse_rotate("b", a, b, 0);
 	else if (ft_strcmp(line, "rrr\n") == 0)
-		reverse_rotate("ab", a, b, 1);
+		reverse_rotate("ab", a, b, 0);
 	else if (ft_strcmp(line, "pa\n") == 0)
-		push('a', a, b, 1);
+		push('a', a, b, 0);
 	else if (ft_strcmp(line, "pb\n") == 0)
-		push('b', a, b, 1);
+		push('b', a, b, 0);
 	else
 		return (0);
 	return (1);
