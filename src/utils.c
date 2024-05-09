@@ -69,7 +69,7 @@ int	ft_all_isdigit(char *str)
 
 	i = -1;
 	while (str[++i])
-		if (!ft_isdigit(str[i]) && str[i] != '-')
+		if (!ft_isdigit(str[i]) && (str[i] == '-' && i != 0))
 			return (0);
 	return (1);
 }
