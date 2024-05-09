@@ -25,7 +25,7 @@ int	instruction(t_list **a, t_list **b, char *line)
 	else if (ft_strcmp(line, "rb\n") == 0)
 		rotate("b", a, b, 0);
 	else if (ft_strcmp(line, "rr\n") == 0)
-		rotate("ab", a, b, 0);	
+		rotate("ab", a, b, 0);
 	else if (ft_strcmp(line, "rra\n") == 0)
 		reverse_rotate("a", a, b, 0);
 	else if (ft_strcmp(line, "rrb\n") == 0)
