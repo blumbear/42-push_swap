@@ -6,7 +6,7 @@
 /*   By: ttaquet <ttaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 16:20:18 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/05/07 18:54:09 by ttaquet          ###   ########.fr       */
+/*   Updated: 2024/05/09 15:15:09 by ttaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	ft_all_isdigit(char *str)
 
 	i = -1;
 	while (str[++i])
-		if (!ft_isdigit(str[i]))
+		if (!ft_isdigit(str[i]) && str[i] != '-')
 			return (0);
 	return (1);
 }
