@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 	bool	splitted;
 
 	splitted = (ac == 2);
-	if (ac < 2)
+	if (ac < 2 || !av[1][0])
 		ft_error(NULL, NULL, "Usage : ./push_swap <int list>");
 	av++;
 	if (ac == 2)
