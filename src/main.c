@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttaquet <ttaquet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 16:18:58 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/05/07 18:12:10 by ttaquet          ###   ########.fr       */
+/*   Updated: 2024/05/13 12:58:14 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 	bool	splitted;
 
 	splitted = (ac == 2);
-	if (ac < 2 || !av[1][0])
+	if (ac < 2 || !av[1][0] || !ft_all_isdigit(av[1]))
 		ft_error(NULL, NULL, "Usage : ./push_swap <int list>");
 	av++;
 	if (ac == 2)
