@@ -3,7 +3,7 @@
 # COMPULSORY TEST
 To this project you basicaly have to perform basic tests :
 - " "
-- "" \
+- ""  
 The result of your program's execution should not lead to segfault.
 
 
