@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttaquet <ttaquet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 16:20:18 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/05/09 15:15:09 by ttaquet          ###   ########.fr       */
+/*   Updated: 2024/05/13 13:20:12 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	ft_all_isdigit(char *str)
 		if (str[i] == '-')
 			i++;
 		if (!ft_isdigit(str[i]))
-			return (0);
+			return (str[i] == ' ' && i != 0);
 	}
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 16:08:58 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/05/08 16:23:23 by tom              ###   ########.fr       */
+/*   Updated: 2024/05/13 13:23:51 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	main(int ac, char **av)
 	bool	splitted;
 
 	splitted = (ac == 2);
-	if (ac < 2)
+	if (ac < 2 || !av[1][0] || !ft_all_isdigit(av[1]))
 		ft_error(NULL, NULL, "Usage : ./push_swap <int list>");
 	av++;
 	if (ac == 2)
