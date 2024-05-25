@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 16:20:18 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/05/13 13:20:12 by tom              ###   ########.fr       */
+/*   Updated: 2024/05/25 15:20:28 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,11 @@ int	ft_all_isdigit(char *str)
 			return (str[i] == ' ' && i != 0);
 	}
 	return (1);
+}
+
+int	node_to_top(t_list *node, int stack_size)
+{
+	if (node->above_mediane)
+		return (node->index);
+	return (stack_size - node->index);
 }

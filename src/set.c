@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttaquet <ttaquet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 01:01:11 by tom               #+#    #+#             */
-/*   Updated: 2024/05/07 18:51:52 by ttaquet          ###   ########.fr       */
+/*   Updated: 2024/05/25 15:19:00 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,15 @@ void	set_mediane(t_list **a, t_list **b)
 
 void	set_cost(t_list *node, t_list *tnode, int stack_size, int tstack_size)
 {
-	node->cost = node->index
-		+ ((-node->index + stack_size) - node->index) * !node->above_mediane
-		+ tnode->index
-		+ (-tnode->index + tstack_size - tnode->index) * !tnode->above_mediane;
+	// int		tmp;
+
+	node->cost = node_to_top(node, stack_size) + node_to_top(tnode, tstack_size);
+	// tmp = ft_abs(node->index - tnode->index);
+	// if (tmp + node_to_top(node, stack_size) < node->cost)
+	// 	node->cost = tmp + node_to_top(node, stack_size);
+	// if (tmp + node_to_top(tnode, tstack_size) < node->cost)
+	// 	tnode->cost = tmp + node_to_top(tnode, tstack_size);
+	// ft_printf("%d cost->%d target->%d index->%d med->%d\n",node->content, node->cost, node->target->content, node->target->index, node->target->above_mediane);
 }
 
 void	select_cost(t_list **a, t_list **b, char stack)

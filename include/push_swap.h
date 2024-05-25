@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:47:44 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/05/13 13:13:03 by tom              ###   ########.fr       */
+/*   Updated: 2024/05/25 15:10:39 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,5 +117,6 @@ bool	ft_is_sorted(t_list **stack);
 int		ft_stack_size(t_list	**stack);
 int		ft_is_not_double(t_list **stack);
 int		ft_all_isdigit(char *str);
+int			node_to_top(t_list *node, int stack_size);
 
 #endif

@@ -33,6 +33,7 @@ typedef struct s_list
 	struct s_list	*target;
 	int				cost;
 	int				index;
+	int				act;
 	bool			above_mediane;
 }	t_list;
 
@@ -334,6 +335,8 @@ int				double_array_size(char **double_array);
 /* Stdlib                                                                     */
 /*                                                                            */
 /******************************************************************************/
+
+int				ft_abs(int n);
 
 /**
  * @brief Converts the initial portion of the string pointed to by `str` to an
