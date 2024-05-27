@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ttaquet <ttaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 13:07:45 by tom               #+#    #+#             */
-/*   Updated: 2024/05/27 01:50:03 by tom              ###   ########.fr       */
+/*   Updated: 2024/05/27 16:37:55 by ttaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ft_place_on_top_first(t_list **a, t_list **b, t_list *min_cost)
 	if (min_cost->above_mediane != min_cost->target->above_mediane)
 		ft_opti(a, b, min_cost);
 	else
-		ft_rev_rotate_test(a, b,min_cost);
+		ft_rev_rotate_test(a, b, min_cost);
 	if (*a != min_cost && min_cost->above_mediane)
 		while (min_cost != *a)
 			rotate("a", a, b, 1);

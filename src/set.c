@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ttaquet <ttaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 01:01:11 by tom               #+#    #+#             */
-/*   Updated: 2024/05/27 01:50:03 by tom              ###   ########.fr       */
+/*   Updated: 2024/05/27 16:37:29 by ttaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,11 @@ void	set_cost(t_list **a, t_list **b, char stack)
 	while (tmp)
 	{
 		if (stack == 'a')
-			tmp->cost = node_to_top(tmp, ft_stack_size(a)) + node_to_top(tmp->target, ft_stack_size(b));
+			tmp->cost = node_to_top(tmp, ft_stack_size(a))
+				+ node_to_top(tmp->target, ft_stack_size(b));
 		else if (stack == 'b')
-			tmp->cost = node_to_top(tmp, ft_stack_size(b)) + node_to_top(tmp->target, ft_stack_size(a));
+			tmp->cost = node_to_top(tmp, ft_stack_size(b))
+				+ node_to_top(tmp->target, ft_stack_size(a));
 		tmp = tmp->next;
 	}
 }
