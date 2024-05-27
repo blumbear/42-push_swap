@@ -11,7 +11,7 @@ CFLAGS =	-Wall -Wextra -Werror -g \
 LFLAGS =	-Llibamoa \
 			-lamoa
 
-FILES = algo fill_stack instruction main print_and_error research_fonction \
+FILES = algo fill_stack ft_opti instruction main print_and_error research_fonction \
 rules set utils
 FILES_BONUS = checker
 

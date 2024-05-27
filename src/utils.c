@@ -6,7 +6,7 @@
 /*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 16:20:18 by ttaquet           #+#    #+#             */
-/*   Updated: 2024/05/25 15:20:28 by tom              ###   ########.fr       */
+/*   Updated: 2024/05/27 02:25:38 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_stack_size(t_list	**stack)
 	return (i);
 }
 
-int	ft_is_not_double(t_list **stack)
+bool	ft_is_not_double(t_list **stack)
 {
 	t_list	*tmp_a;
 	t_list	*tmp_b;
@@ -55,15 +55,15 @@ int	ft_is_not_double(t_list **stack)
 		while (tmp_b)
 		{
 			if (tmp_a->content == tmp_b->content)
-				return (0);
+				return (false);
 			tmp_b = tmp_b->next;
 		}
 		tmp_a = tmp_a->next;
 	}
-	return (1);
+	return (true);
 }
 
-int	ft_all_isdigit(char *str)
+bool	ft_all_isdigit(char *str)
 {
 	int	i;
 
